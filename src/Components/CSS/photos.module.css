@@ -28,6 +28,9 @@
     gap: 20px;
     width: 100%;
     align-items: stretch;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-gap: 20px; */
 }
 .all_post_image{
     display: inline-block;
@@ -139,7 +142,7 @@
 .list_card_image_info img{
     width: 100%;
     border-radius: 10px;
-    object-fit: contain;
+    object-fit: cover;
     height: 100%;
 }
 

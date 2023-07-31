@@ -16,6 +16,7 @@
     background-color: initial;
 }
 .nav_header{
+    color: var(--text);
     background-color: unset;
 }
 .nav_header h2{
