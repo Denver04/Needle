@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import style from "../CSS/card.module.css";
 import { AiFillCalendar } from "react-icons/ai";
-import { BiSolidUserCircle } from "react-icons/bi";
 import { AiFillLike } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import { BsFillShareFill } from "react-icons/bs";
@@ -11,7 +10,6 @@ import { MdPhotoSizeSelectActual } from "react-icons/md";
 import { BiLogoTwitter } from "react-icons/bi";
 import { BiWorld } from "react-icons/bi";
 import { BsInstagram } from "react-icons/bs";
-import { BsFillCaretRightFill } from "react-icons/bs";
 import { BsBook } from "react-icons/bs";
 import "../../app/globals.css";
 
@@ -124,4 +122,3 @@ export const Card = ({ item }) => {
     </div>
   );
 };
-

@@ -3,7 +3,6 @@
 import React from 'react'
 import { AiOutlineArrowUp } from 'react-icons/ai';
 import style from "../CSS/navbar.module.css";
-import Theme from '../Context/Theme';
 
 export const Button = () => {
 

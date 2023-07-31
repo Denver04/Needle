@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-[theme="light"]{
+[theme="light"] {
   --text: #ffffff;
   --text2: #606060;
   --text3: #dad9d9;
   --navbg: #000000d9;
   --naviconhover: #aeadad00;
-
   --bgcolor: #141414;
   --borderCard: rgb(209, 207, 207);
   --borderHoverCard: rgba(99, 96, 96, 0.5);
@@ -17,7 +16,7 @@
   --photop: rgb(166 166 166);
 }
 
-[theme="dark"]{
+[theme="dark"] {
   --text: #000000;
   --text3: #1e1d1d;
   --navbg: #d1d0d0;
@@ -25,28 +24,20 @@
   --bgcolor: #0055ff00;
   --borderCard: rgb(20, 19, 19);
   --borderHoverCard: rgba(174, 171, 171, 0.5);
-
   --cardIconHover: rgba(233, 225, 225, 0.796);
   --picon: rgb(0, 0, 0);
   --userp: rgb(31 31 31);
   --postHover: rgba(142, 141, 141, 0.75);
   --photop: rgb(81, 80, 80);
-
-
 }
 
-
-
-*{
+* {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: var(--bgcolor);
 }
 
-
-
-body{
+body {
   background-color: var(--bgcolor);
 }
-
