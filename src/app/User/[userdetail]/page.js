@@ -48,7 +48,7 @@ export default function Userdetail({ params }) {
   const handleScroll = () => {
     try {
       if (
-        window.innerHeight + document.documentElement.scrollTop + 10 >=
+        window.innerHeight + document.documentElement.scrollTop + 40 >=
         document.documentElement.offsetHeight
       ) {
         setPage((prev) => prev + 1);
@@ -69,7 +69,7 @@ export default function Userdetail({ params }) {
           `${process.env.NEXT_PUBLIC_API_URL}/users/${params.userdetail}/photos?page=${page}&&client_id=${process.env.NEXT_PUBLIC_API_KEY}`
         );
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
 
         setPhotos((prev) => [...prev, ...data]);
       } catch (error) {

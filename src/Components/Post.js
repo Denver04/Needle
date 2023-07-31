@@ -31,7 +31,7 @@ export const Post = () => {
   const handleScroll = () => {
     try {
       if (
-        window.innerHeight + document.documentElement.scrollTop + 10 >=
+        window.innerHeight + document.documentElement.scrollTop + 40 >=
         document.documentElement.offsetHeight
       ) {
         setPage((prev) => prev + 1);
