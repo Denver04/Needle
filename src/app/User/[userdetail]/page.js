@@ -5,7 +5,7 @@
 import { useContext, useEffect, useState } from "react";
 import style from "../../../Components/CSS/userInfo.module.css";
 import { MdLocationOn } from "react-icons/md";
-import { BiLogoTwitter, BiWorld } from "react-icons/bi";
+import { BiError, BiLogoTwitter, BiWorld } from "react-icons/bi";
 import Link from "next/link";
 import { BsInstagram } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
@@ -13,7 +13,7 @@ import { MdPhotoSizeSelectActual } from "react-icons/md";
 import { MdOutlineCollections } from "react-icons/md";
 import { BsDownload } from "react-icons/bs";
 import { BsPersonFillAdd } from "react-icons/bs";
-import { BsPersonFillDash } from "react-icons/bs";
+import { RiUserFollowFill } from "react-icons/ri";
 import { Photo } from "@/Components/Photos/Photo";
 import { ClipLoader } from "react-spinners";
 import Theme from "@/Components/Context/Theme";
@@ -21,19 +21,25 @@ import Theme from "@/Components/Context/Theme";
 export default function Userdetail({ params }) {
   const { mode } = useContext(Theme);
   const [information, setInformation] = useState([]);
+  const [error , setError] = useState(false);
+  const [photoError , setPhotoError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `https://api.unsplash.com/users/${params.userdetail}?client_id=DxAAYPqgETePXR9UaMpfTOdvmNkAmbwkce0wpXi88r8`
-      );
-      const data = await res.json();
-      console.log(data);
-
-      setInformation(data);
+      try {
+        setError(false);
+        const res = await fetch(
+            `https://api.unsplash.com/users/${params.userdetail}?client_id=DxAAYPqgETePXR9UaMpfTOdvmNkAmbwkce0wpXi88r8`
+          );
+          const data = await res.json();
+          console.log(data);
+    
+          setInformation(data);
+      } catch (error) {
+        setError(true);
+      }
     };
     fetchData();
-
     
   }, [params.userdetail]);
 
@@ -57,13 +63,18 @@ export default function Userdetail({ params }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `https://api.unsplash.com/users/${params.userdetail}/photos?page=${page}&&client_id=DxAAYPqgETePXR9UaMpfTOdvmNkAmbwkce0wpXi88r8`
-      );
-      const data = await res.json();
-      console.log(data);
-
-      setPhotos((prev) => [...prev , ...data]);
+      try {
+        setPhotoError(false)
+        const res = await fetch(
+            `https://api.unsplash.com/users/${params.userdetail}/photos?page=${page}&&client_id=DxAAYPqgETePXR9UaMpfTOdvmNkAmbwkce0wpXi88r8`
+          );
+          const data = await res.json();
+          console.log(data);
+    
+          setPhotos((prev) => [...prev , ...data]);
+      } catch (error) {
+        setPhotoError(true)
+      }
     };
     fetchData();
   }, [params.userdetail , page]);
@@ -78,7 +89,14 @@ export default function Userdetail({ params }) {
 
   return (
     <div style={{width: "100%"}}>
-      { information && (photos.length!==0) ? (
+        {
+            error ? 
+            <div className={style.error}>
+                <BiError /> Something Went Wrong
+            </div> 
+            :
+            <>
+            { information && (photos.length!==0) ? (
         <div className={style.information} theme={mode}>
           <div className={style.information_above}>
             <div className={style.information_user_basic_detail}>
@@ -124,7 +142,7 @@ export default function Userdetail({ params }) {
                 </p>
               </div>
               <div className={style.card_link}>
-                <BsPersonFillDash size="1.3rem" />
+                <RiUserFollowFill className={style.toogle_color} size="1.3rem" />
                 <p>
                   Followers : <span>{information?.followers_count}</span>
                 </p>
@@ -205,9 +223,16 @@ export default function Userdetail({ params }) {
               </div>
             </div>
           </div>
-          <div>
-            <Photo params={params.userdetail} photos={photos} />
-          </div>
+                {
+                    photoError ? 
+                    <div className={style.error}>
+                        <BiError /> Something Went Wrong
+                    </div> 
+                    :
+                    <div>
+                        <Photo params={params.userdetail} photos={photos} />
+                    </div>
+                }
         </div>
       ) : 
       (
@@ -221,6 +246,8 @@ export default function Userdetail({ params }) {
             data-testid="loader"
       />
       )}
+            </>
+        }
     </div>
   );
 }

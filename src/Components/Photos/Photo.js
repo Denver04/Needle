@@ -20,7 +20,7 @@ export const Photo = ({ params , photos }) => {
   const handleList = () => {
     setGrid(true);
   };
-
+  
   return (
     <div className={style.all_post_image}>
       <div className={style.change_view_button}>

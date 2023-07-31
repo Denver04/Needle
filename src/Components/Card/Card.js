@@ -22,14 +22,10 @@ import "../../app/globals.css";
 
 import Link from "next/link";
 
-export const Card = ({ item , loading }) => {
+export const Card = ({ item }) => {
   let date = new Date(item?.user?.updated_at);
   let formattedDate = date.toLocaleDateString("en-US");
 
-  let time = new Date(item?.user?.updated_at);
-  let formatedTime = time.toLocaleTimeString("en-US");
-
-  console.log(item?.user, loading );
   return (
     <div className={style.card}>
       <div className={style.card_image_info}>
@@ -111,7 +107,7 @@ export const Card = ({ item , loading }) => {
               </div>
               <div className={style.card_link_left_icon}>
                 <BsFillShareFill size="1.2rem" />
-                <p>36</p>
+                <p>23</p>
               </div>
               <div className={style.card_link_left_icon}>
                 <MdPhotoSizeSelectActual size="1.2rem" />
@@ -134,6 +130,3 @@ export const Card = ({ item , loading }) => {
   );
 };
 
-// {{
-//     pathname: "/User/" + item?.user.first_name + (item?.user?.last_name ? item?.user?.last_name : ""),
-// }}

@@ -123,11 +123,20 @@
         background-color: #c6c6c6;
         color: black;
     }
+    .mode_icon{
+        padding: 5px;
+    }
+    .nav_link{
+        margin-right: 1rem;
+    }
 }
 
 @media screen and (min-width:500px) and (max-width:768px){
     .to_top{
         width: 4%;
+    }
+    .mode_icon{
+        padding: 8px;
     }
 }
 
