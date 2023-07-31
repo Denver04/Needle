@@ -10,18 +10,6 @@ export const Post = () => {
   const [page , setPage] = useState(1);
   const [loading , setLoading] = useState(false);
 
-  // useEffect(()=>{
-  //   setLoading(false);
-  //   const fetchData = async () => {
-  //     const res = await fetch(`https://api.unsplash.com/photos?page=${page}&client_id=DxAAYPqgETePXR9UaMpfTOdvmNkAmbwkce0wpXi88r8`)
-  //     const data = await res.json();
-
-  //     setData((prev) => [...prev , ...data]);
-  //   }
-  //   fetchData();
-  //   setLoading(true);
-  // } , [page])
-
   useEffect(() => {
     const fetchData = async () => {
       try {

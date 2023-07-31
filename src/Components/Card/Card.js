@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-// import Utahime from "../../../public/Images/utahime.png"
 import Image from "next/image";
 import style from "../CSS/card.module.css";
 import { AiFillCalendar } from "react-icons/ai";
@@ -14,10 +13,6 @@ import { BiWorld } from "react-icons/bi";
 import { BsInstagram } from "react-icons/bs";
 import { BsFillCaretRightFill } from "react-icons/bs";
 import { BsBook } from "react-icons/bs";
-import { TbPigMoney } from "react-icons/tb";
-import { MdCollections } from "react-icons/md";
-import { LiaChessKingSolid } from "react-icons/lia";
-import { BiTimeFive } from "react-icons/bi";
 import "../../app/globals.css";
 
 import Link from "next/link";

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from 'react'
+import React from 'react'
 import { AiOutlineArrowUp } from 'react-icons/ai';
 import style from "../CSS/navbar.module.css";
 import Theme from '../Context/Theme';
@@ -8,9 +8,7 @@ import Theme from '../Context/Theme';
 export const Button = () => {
 
     const goTop = () => {
-        // useEffect(()=>{
-            window.scrollTo( 0, 0,'smooth')
-        // }, [])
+      window.scrollTo( 0, 0,'smooth')
     }
 
   return (

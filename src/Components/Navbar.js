@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useContext } from "react";
-// import utamhime from "../../public/Images/utahime.png";
 import style from "./CSS/navbar.module.css";
 import Link from "next/link";
 import { MdDarkMode , MdLightMode } from "react-icons/md";
