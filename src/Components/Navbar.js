@@ -18,7 +18,7 @@ export const Navbar = () => {
   return (
     <nav className={style.nav} theme={mode}>
       <div className={style.nav_head}>
-        <Link style={{borderRadius:"50%"}} href="/"><div className={style.image_div}>
+        <Link style={{borderRadius:"50%" , textDecoration: "none"}} href="/"><div className={style.image_div}>
           <h1>A</h1>
         </div></Link>
         <Link style={{backgroundColor:"inherit" , textDecoration:"none"}} href="/"><div className={style.nav_header}>

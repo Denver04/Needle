@@ -61,6 +61,8 @@ export default function Userdetail({ params }) {
     return () => window.removeEventListener('scroll' , handleScroll);
   })
 
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
