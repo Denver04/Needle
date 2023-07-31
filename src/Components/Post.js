@@ -10,15 +10,16 @@ export const Post = () => {
   const [page , setPage] = useState(1);
   const [loading , setLoading] = useState(false);
 
+  console.log(process.env.NEXT_PUBLIC_API_KEY);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(false);
-        const res = await fetch(`https://api.unsplash.com/photos?page=${page}&client_id=DxAAYPqgETePXR9UaMpfTOdvmNkAmbwkce0wpXi88r8`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/photos?page=${page}&client_id=${process.env.NEXT_PUBLIC_API_KEY}`);
         const data = await res.json();
         setData((prev) => [...prev, ...data]);
       } catch (error) {
-        // console.error('Error fetching data:', error);
         setLoading(true);
       }
     };

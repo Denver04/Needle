@@ -29,7 +29,7 @@ export default function Userdetail({ params }) {
       try {
         setError(false);
         const res = await fetch(
-            `https://api.unsplash.com/users/${params.userdetail}?client_id=DxAAYPqgETePXR9UaMpfTOdvmNkAmbwkce0wpXi88r8`
+            `${process.env.NEXT_PUBLIC_API_URL}/users/${params.userdetail}?client_id=${process.env.NEXT_PUBLIC_API_KEY}`
           );
           const data = await res.json();
           console.log(data);
@@ -66,7 +66,7 @@ export default function Userdetail({ params }) {
       try {
         setPhotoError(false)
         const res = await fetch(
-            `https://api.unsplash.com/users/${params.userdetail}/photos?page=${page}&&client_id=DxAAYPqgETePXR9UaMpfTOdvmNkAmbwkce0wpXi88r8`
+            `${process.env.NEXT_PUBLIC_API_URL}/users/${params.userdetail}/photos?page=${page}&&client_id=${process.env.NEXT_PUBLIC_API_KEY}`
           );
           const data = await res.json();
           console.log(data);
