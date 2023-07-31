@@ -19,7 +19,7 @@ export const Navbar = () => {
       <div className={style.nav_head}>
         <Link style={{ borderRadius: "50%", textDecoration: "none" }} href="/">
           <div className={style.image_div}>
-            <h1>A</h1>
+            <h1>G</h1>
           </div>
         </Link>
         <Link
@@ -27,7 +27,7 @@ export const Navbar = () => {
           href="/"
         >
           <div className={style.nav_header}>
-            <h2>Instagram</h2>
+            <h2>GROWING</h2>
           </div>
         </Link>
       </div>
