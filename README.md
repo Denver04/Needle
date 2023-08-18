@@ -1,5 +1,5 @@
 
-# Growingg
+# Needle
 
 ![image](https://github.com/Denver04/Groww/assets/87076425/9caa769a-5d27-4d59-a955-572bc9990ffa)
 
