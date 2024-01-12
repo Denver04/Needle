@@ -54,9 +54,9 @@
   width: 100%;
 }
 .hire_info .hire_me {
-  border: 1px solid greenyellow;
+  border: 1px solid rgb(47, 210, 255);
   outline: none;
-  background-color: #b3ea96c0;
+  background-color: rgb(47, 210, 255);
   color: #000;
   padding: 5px 10px;
   border-radius: 5px;
@@ -73,7 +73,7 @@
 .hire_info .message {
   border: 1px solid rgb(16, 130, 224);
   outline: none;
-  background-color: rgb(16, 130, 224);
+  background-color: rgb(12, 46, 74);
   color: #ffffff;
   padding: 5px 10px;
   border-radius: 5px;

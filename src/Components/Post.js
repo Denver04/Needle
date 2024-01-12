@@ -3,13 +3,12 @@ import { Card } from "./Card/Card";
 import style from "./CSS/card.module.css";
 import { ClipLoader } from "react-spinners";
 import { BiSolidError } from "react-icons/bi";
+import { debounce } from "lodash";
 
 export const Post = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-
-  console.log(process.env.NEXT_PUBLIC_API_KEY);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +27,7 @@ export const Post = () => {
     fetchData();
   }, [page]);
 
-  const handleScroll = () => {
+  const handleScroll = debounce(() => {
     try {
       if (
         window.innerHeight + document.documentElement.scrollTop + 40 >=
@@ -36,10 +35,17 @@ export const Post = () => {
       ) {
         setPage((prev) => prev + 1);
       }
-    } catch (error) {
-      return error;
-    }
-  };
+    } catch (error) {}
+  }, 500);
+
+  useEffect(() => {
+    const handleScrollEvent = () => {
+      handleScroll(); 
+    };
+
+    window.addEventListener("scroll", handleScrollEvent);
+    return () => window.removeEventListener("scroll", handleScrollEvent);
+  }, [handleScroll]);
 
   const loader = {
     position: "absolute",
@@ -48,11 +54,6 @@ export const Post = () => {
     width: "50px",
     height: "50px",
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
 
   return (
     <>

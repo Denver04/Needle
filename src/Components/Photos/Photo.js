@@ -11,7 +11,6 @@ import Link from "next/link";
 
 export const Photo = ({ params, photos }) => {
   const [grid, setGrid] = useState(true);
-  console.log(photos);
 
   const handleGrid = () => {
     setGrid(false);

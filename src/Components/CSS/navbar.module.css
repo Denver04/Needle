@@ -68,22 +68,26 @@
 }
 .to_top {
   position: fixed;
-  bottom: 100px;
-  right: 100px;
-  border: 2px solid rgb(243, 198, 182);
+  bottom: 20px;
+  right: 300px;
+  border: 2px solid #f3c6b6;
   border-radius: 20px;
-  font-size: 30px;
+  font-size: 20px;
   color: grey;
   display: flex;
-  width: 2%;
-  padding: 10px;
+  /* width: 2%; */
+  padding: 9px;
   border-radius: 50%;
   margin-left: auto;
   align-items: center;
   justify-content: center;
   z-index: 999;
-  background-color: #c6c6c6;
-  color: black;
+  /* background-color: #c6c6c6; */
+  color: #fff;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
 }
 .to_top:hover {
   color: white;
@@ -107,22 +111,23 @@
     display: none;
   }
   .to_top {
-    position: sticky;
-    bottom: 16px;
-    right: 12px;
-    border: 2px solid rgb(175, 111, 88);
+    position: fixed;
+    bottom: 20px;
+    right: 300px;
+    border: 2px solid #f3c6b6;
     border-radius: 20px;
-    font-size: 30px;
+    font-size: 20px;
     color: grey;
     display: flex;
-    width: 8%;
-    padding: 10px;
+    /* width: 2%; */
+    padding: 9px;
     border-radius: 50%;
     margin-left: auto;
     align-items: center;
     justify-content: center;
-    background-color: #c6c6c6;
-    color: black;
+    z-index: 999;
+    /* background-color: #c6c6c6; */
+    color: #fff;
   }
   .mode_icon {
     padding: 5px;

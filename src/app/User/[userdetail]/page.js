@@ -15,8 +15,9 @@ import { BsDownload } from "react-icons/bs";
 import { BsPersonFillAdd } from "react-icons/bs";
 import { RiUserFollowFill } from "react-icons/ri";
 import { Photo } from "@/Components/Photos/Photo";
-import { ClipLoader } from "react-spinners";
+import { ClimbingBoxLoader } from "react-spinners";
 import Theme from "@/Components/Context/Theme";
+import debounce from "lodash/debounce";
 
 export default function Userdetail({ params }) {
   const { mode } = useContext(Theme);
@@ -32,7 +33,6 @@ export default function Userdetail({ params }) {
           `${process.env.NEXT_PUBLIC_API_URL}/users/${params.userdetail}?client_id=${process.env.NEXT_PUBLIC_API_KEY}`
         );
         const data = await res.json();
-        console.log(data);
 
         setInformation(data);
       } catch (error) {
@@ -45,21 +45,25 @@ export default function Userdetail({ params }) {
   const [photos, setPhotos] = useState([]);
   const [page, setPage] = useState(1);
 
-  const handleScroll = () => {
+  const handleScroll = debounce(() => {
     try {
       if (
-        window.innerHeight + document.documentElement.scrollTop + 40 >=
+        window.innerHeight + document.documentElement.scrollTop + 10 >=
         document.documentElement.offsetHeight
       ) {
         setPage((prev) => prev + 1);
       }
     } catch (error) {}
+  }, 200);
+
+  const handleScrollEvent = () => {
+    handleScroll(); // Call your debounced handleScroll function
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
+    window.addEventListener("scroll", handleScrollEvent);
+    return () => window.removeEventListener("scroll", handleScrollEvent);
+  }, [handleScroll]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -110,7 +114,7 @@ export default function Userdetail({ params }) {
                         <button
                           className={style.message}
                           disabled
-                          style={{ backgroundColor: "#c1c1c1" }}
+                          // style={{ backgroundColor: "#c1c1c1" }}
                         >
                           Message
                         </button>
@@ -247,11 +251,11 @@ export default function Userdetail({ params }) {
               )}
             </div>
           ) : (
-            <ClipLoader
+            <ClimbingBoxLoader
               className={style.loader}
               color="#3f36d6"
               loading={true}
-              size={150}
+              size={10}
               cssOverride={loader}
               aria-label="Loading Spinner"
               data-testid="loader"

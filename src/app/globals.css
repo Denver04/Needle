@@ -36,8 +36,10 @@
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: var(--bgcolor);
+  /* scroll-behavior: smooth; */
 }
 
 body {
   background-color: var(--bgcolor);
+  /* scroll-behavior: smooth; */
 }
